@@ -1,0 +1,59 @@
+{
+    "name": "image-filter",
+    "version": "0.0.1",
+    "description": "solid js libraries",
+    "main": "lib/index.js",
+    "scripts": {
+        "start": "mo start library solid",
+        "build": "mo build library solid",
+        "stylelint": "mo stylelint [site]",
+        "eslint": "mo eslint [site]",
+        "changelog": "mo changelog CHANGELOG.md && git add CHANGELOG.md",
+        "prepare": "mo githooks pre-commit=\"yarn precommit\" commit-msg=\"npx --no -- commitlint --edit ${1}\"",
+        "precommit": "npm run stylelint && npm run eslint && npm run changelog"
+    },
+    "license": "MIT",
+    "keywords": [
+        "image-filter",
+        "ui libraries"
+    ],
+    "devDependencies": {
+        "@commitlint/cli": "19.7.1",
+        "@commitlint/config-conventional": "19.7.1",
+        "@moneko/cli": "2.18.1",
+        "@moneko/core": "3.29.2",
+        "@moneko/css": "1.1.5",
+        "@moneko/request": "1.2.0",
+        "eslint-config-neko": "3.0.5",
+        "eslint-plugin-solid": "0.14.5",
+        "husky": "9.1.7",
+        "n-code-live": "2.0.0",
+        "neko-ui": "^2.9.3",
+        "solid-element": "1.8.1",
+        "stylelint-config-moneko": "2.5.0"
+    },
+    "dependencies": {
+        "@moneko/solid": "1.10.6",
+        "context-filter-polyfill": "^0.3.22",
+        "solid-js": "1.9.5"
+    },
+    "author": "moneko",
+    "files": [
+        "LICENSE",
+        "README.md",
+        "es",
+        "lib",
+        "types"
+    ],
+    "module": "es/index.js",
+    "types": "types/index.d.ts",
+    "exports": {
+        ".": {
+            "require": "./lib/index.js",
+            "import": "./es/index.js"
+        },
+        "./*": [
+            "./*"
+        ]
+    }
+}
