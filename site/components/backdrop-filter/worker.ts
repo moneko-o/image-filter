@@ -2,7 +2,7 @@ interface WorkerMessage {
   bitmap: ImageBitmap;
   mask: string;
   filter: string;
-  offscreen: OffscreenCanvas;
+  offscreen?: OffscreenCanvas;
 }
 let timer: NodeJS.Timeout;
 let canvas: OffscreenCanvas, ctx: OffscreenCanvasRenderingContext2D | null;

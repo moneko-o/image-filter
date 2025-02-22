@@ -1,17 +1,16 @@
+import mdStyle from 'neko-ui/es/md-style';
 import theme from 'neko-ui/es/theme';
 
 import Footer from '@/components/footer';
 
-import ChangeLog from '../CHANGELOG.md?raw';
-import Readme from '../README.md?raw';
+import ChangeLog from '../CHANGELOG.md';
+import Readme from '../README.md';
 
 import BackdropFilter from './components/backdrop-filter';
 
 import './layout.global.css';
 
-import 'neko-ui/es/md';
 import 'neko-ui/es/back-top';
-import 'neko-ui/es/color-palette';
 
 function App() {
   const { baseStyle } = theme;
@@ -19,10 +18,20 @@ function App() {
   return (
     <>
       <style textContent={baseStyle()} />
+      <style textContent={mdStyle} />
       <div class="layout">
-        <n-md text={Readme} not-render={true} line-number={false} picture-viewer={false} />
+        <div class="n-md-box">
+          <div class="n-md-body">
+            <Readme />
+          </div>
+        </div>
+        {/* <n-md text={Readme} not-render={true} line-number={false} picture-viewer={false} /> */}
         <BackdropFilter />
-        <n-md text={ChangeLog} not-render={true} line-number={false} picture-viewer={false} />
+        <div class="n-md-box">
+          <div class="n-md-body">
+            <ChangeLog />
+          </div>
+        </div>
         <Footer />
       </div>
       <n-back-top css=".back-top {position: fixed;}" />

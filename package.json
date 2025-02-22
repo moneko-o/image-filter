@@ -24,6 +24,7 @@
         "@moneko/core": "3.29.2",
         "@moneko/css": "1.1.5",
         "@moneko/request": "1.2.0",
+        "crypto-js": "^4.2.0",
         "eslint-config-neko": "3.0.5",
         "eslint-plugin-solid": "0.14.5",
         "husky": "9.1.7",

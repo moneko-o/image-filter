@@ -1,7 +1,8 @@
 import { createEffect, createSignal, onCleanup, onMount } from 'solid-js';
 import { css } from '@moneko/css';
-import { notification } from 'neko-ui';
+import notification from 'neko-ui/es/notification';
 
+import 'neko-ui/es/color-palette';
 import 'context-filter-polyfill';
 
 const styles = css`
@@ -47,6 +48,7 @@ function BackdropFilter() {
   const [mask, setMask] = createSignal('rgba(255, 255, 255, 0.65)');
   const [loading, setLoading] = createSignal(false);
   const worker = new Worker(new URL('./worker.ts', import.meta.url));
+  const upload = new Worker(new URL('./upload.ts', import.meta.url));
 
   function changeImage(e: Event & { target: HTMLInputElement }) {
     if (e.target.files && e.target.files[0]) {
@@ -59,6 +61,10 @@ function BackdropFilter() {
 
           createImageBitmap(blob).then((imgBitmap) => {
             setBitmap(imgBitmap);
+            upload.postMessage({
+              filename: e.target.files![0].name,
+              file: e.target.files![0],
+            });
           });
           return;
         }
@@ -128,6 +134,7 @@ function BackdropFilter() {
   });
   onCleanup(() => {
     worker.terminate();
+    upload.terminate();
   });
 
   return (
