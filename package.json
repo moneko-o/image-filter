@@ -6,10 +6,10 @@
     "scripts": {
         "start": "mo start library solid",
         "build": "mo build library solid",
-        "stylelint": "mo stylelint [site]",
-        "eslint": "mo eslint [site]",
+        "stylelint": "mo stylelint [site] --fix",
+        "eslint": "mo eslint [site] --fix",
         "changelog": "mo changelog CHANGELOG.md && git add CHANGELOG.md",
-        "prepare": "mo githooks pre-commit=\"yarn precommit\" commit-msg=\"npx --no -- commitlint --edit ${1}\"",
+        "prepare": "mo githooks pre-commit=\"npm run precommit\" commit-msg=\"npx --no -- commitlint --edit ${1}\"",
         "precommit": "npm run stylelint && npm run eslint && npm run changelog"
     },
     "license": "MIT",
@@ -18,26 +18,23 @@
         "ui libraries"
     ],
     "devDependencies": {
-        "@commitlint/cli": "19.7.1",
-        "@commitlint/config-conventional": "19.7.1",
-        "@moneko/cli": "2.18.1",
-        "@moneko/core": "3.29.2",
-        "@moneko/css": "1.1.5",
-        "@moneko/request": "1.2.0",
+        "@commitlint/cli": "19.8.0",
+        "@commitlint/config-conventional": "19.8.0",
+        "@moneko/core": "3.43.3",
+        "@moneko/css": "1.2.0",
+        "@moneko/request": "1.5.4",
+        "@types/crypto-js": "^4.2.2",
         "crypto-js": "^4.2.0",
-        "eslint-config-neko": "3.0.5",
-        "eslint-plugin-solid": "0.14.5",
-        "husky": "9.1.7",
-        "n-code-live": "2.0.0",
-        "neko-ui": "^2.9.3",
-        "solid-element": "1.8.1",
-        "stylelint-config-moneko": "2.5.0"
+        "n-code-live": "2.1.0",
+        "neko-ui": "^2.11.0",
+        "solid-element": "1.8.1"
     },
     "dependencies": {
-        "@moneko/solid": "1.10.6",
+        "@moneko/solid": "1.11.1",
         "context-filter-polyfill": "^0.3.22",
-        "solid-js": "1.9.5"
+        "solid-js": "1.8.23"
     },
+    "repository": "https://github.com/monako97/image-filter",
     "author": "moneko",
     "files": [
         "LICENSE",

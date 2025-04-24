@@ -4,6 +4,7 @@
 
 ### 🐛 Bug Fixes
 
+- deploy ([4eed421](git@github.com:monako97/image-filter/commit/4eed421ae76bf86065e14c22cb37a7b6d972847e))
 - deploy ([472e66f](git@github.com:monako97/image-filter/commit/472e66fc8b421601046aaea354102f1e461330a2))
 
 ### ✨ Features

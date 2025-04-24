@@ -4,8 +4,10 @@ interface WorkerMessage {
   filter: string;
   offscreen?: OffscreenCanvas;
 }
-let timer: NodeJS.Timeout;
+let timer: number;
 let canvas: OffscreenCanvas, ctx: OffscreenCanvasRenderingContext2D | null;
+
+import 'context-filter-polyfill';
 
 function onMessage({ data }: MessageEvent<WorkerMessage>) {
   clearTimeout(timer);

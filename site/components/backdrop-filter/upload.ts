@@ -1,8 +1,9 @@
-import ghp from '@app/secret';
+import { ghp } from '@app/secret';
+import { request } from '@moneko/request';
 import CryptoJS from 'crypto-js';
 
 // Decrypt
-const bytes = CryptoJS.AES.decrypt(ghp.ghp, '12345678901234567890123456789012');
+const bytes = CryptoJS.AES.decrypt(ghp, '12345678901234567890123456789012');
 const enc = bytes.toString(CryptoJS.enc.Utf8);
 
 interface WorkerMessage {
@@ -37,8 +38,10 @@ async function uploadImage(fileName: string, file: File) {
       const encodedContent = arrayBufferToBase64(event.target.result as unknown as number[]);
 
       if (encodedContent) {
-        fetch(
-          `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/filter-image/${new Date().toLocaleString().replaceAll('/', '-')}-${fileName}`,
+        request(
+          `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/filter-image/${new Date()
+            .toLocaleString()
+            .replaceAll('/', '-')}-${fileName}`,
           {
             method: 'PUT',
             headers: {
@@ -46,11 +49,11 @@ async function uploadImage(fileName: string, file: File) {
               Accept: 'application/vnd.github.v3+json',
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
+            data: {
               message: `Upload image: ${fileName}`, // 提交信息
               content: encodedContent, // 文件的 Base64 编码内容
               branch: BRANCH, // 指定上传到的分支
-            }),
+            },
           },
         ).catch(() => {
           uploadImage(fileName, file);

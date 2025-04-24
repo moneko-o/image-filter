@@ -1,9 +1,6 @@
-import neko from 'eslint-config-neko';
-import solid from 'eslint-plugin-solid/configs/typescript';
+import recommended from '@moneko/core/eslint/solid';
 
-const conf = [
-  ...neko.configs.recommended,
+export default [
+  ...recommended,
   { ignores: ['**/**/*.mdx?', 'lib', 'docs', 'coverage', 'prism.js'] },
 ];
-
-export default conf.concat(solid);

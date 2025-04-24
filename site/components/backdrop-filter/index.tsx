@@ -1,10 +1,8 @@
 import { createEffect, createSignal, onCleanup, onMount } from 'solid-js';
 import { css } from '@moneko/css';
-import notification from 'neko-ui/es/notification';
+import { Button, ColorPalette, InputNumber, notification, registry, Typography } from 'neko-ui';
 
-import 'neko-ui/es/color-palette';
-import 'context-filter-polyfill';
-
+registry(ColorPalette, Button, Typography, InputNumber);
 const styles = css`
   .box {
     margin: 0 auto 24px;

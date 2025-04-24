@@ -1,5 +1,4 @@
-import mdStyle from 'neko-ui/es/md-style';
-import theme from 'neko-ui/es/theme';
+import { BackTop, mdStyle, registry, theme } from 'neko-ui';
 
 import Footer from '@/components/footer';
 
@@ -10,7 +9,7 @@ import BackdropFilter from './components/backdrop-filter';
 
 import './layout.global.css';
 
-import 'neko-ui/es/back-top';
+registry(BackTop);
 
 function App() {
   const { baseStyle } = theme;
@@ -25,7 +24,6 @@ function App() {
             <Readme />
           </div>
         </div>
-        {/* <n-md text={Readme} not-render={true} line-number={false} picture-viewer={false} /> */}
         <BackdropFilter />
         <div class="n-md-box">
           <div class="n-md-body">
