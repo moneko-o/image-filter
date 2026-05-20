@@ -3,6 +3,15 @@
   "version": "0.0.1",
   "description": "solid js libraries",
   "main": "lib/index.js",
+     "scripts": {
+        "start": "mo start library solid",
+        "build": "mo build library solid",
+        "stylelint": "mo stylelint [site] --fix",
+        "eslint": "mo eslint [site] --fix",
+        "changelog": "mo changelog CHANGELOG.md && git add CHANGELOG.md",
+        "prepare": "mo githooks pre-commit=\"npm run precommit\" commit-msg=\"npx --no -- commitlint --edit ${1}\"",
+        "precommit": "npm run stylelint && npm run eslint && npm run changelog"
+    },
   "license": "MIT",
   "keywords": [
     "image-filter",
