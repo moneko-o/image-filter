@@ -1,4 +1,4 @@
-import { ghp } from '@app/secret';
+import { ghp } from 'vm:secret';
 import { request } from '@moneko/request';
 import CryptoJS from 'crypto-js';
 
