@@ -4,10 +4,10 @@ interface WorkerMessage {
   filter: string;
   offscreen?: OffscreenCanvas;
 }
-let timer: number;
+let timer: ReturnType<typeof setTimeout>;
 let canvas: OffscreenCanvas, ctx: OffscreenCanvasRenderingContext2D | null;
 
-import 'context-filter-polyfill';
+import './polyfill';
 
 function onMessage({ data }: MessageEvent<WorkerMessage>) {
   clearTimeout(timer);

@@ -1,20 +1,9 @@
 {
-    "extends": "@moneko/solid/base",
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@/*": [
-                "site/*"
-            ],
-            "@pkg/*": [
-                "components/*"
-            ],
-            "image-filter/*": [
-                "components/*"
-            ]
-        }
-    },
-    "exclude": [
-        "types/*"
-    ]
+  "extends": "@moneko/init.d",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["site/*"]
+    }
+  }
 }

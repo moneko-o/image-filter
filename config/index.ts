@@ -9,7 +9,8 @@ const conf: Partial<ConfigType> = {
   },
   virtualModule: {
     secret: {
-      'ghp': 'U2FsdGVkX19QPHa1WbQc8IkxjMSl4OyugFdJVtGJISaTe4I2/wFUzvFkotry8TRTUjMtI8P+N+6B4zV9G2TnaA=='
+      msg: 'U2FsdGVkX19EmWkFQA9msLTIfJJaINphcpE5lXAMBVexV3s5CuRyJ49dHw8uuZPAe5FXePDFvLIAXCmxN4wecIqWoZIJAKNRXmMZh7i49oP909txfQMZ2H3yqtn2hX2gsQ5L7OcAa8DcDRiJwHbOMg==',
+      secretKey: '12345678901234567890123456789012'
     }
   }
 };

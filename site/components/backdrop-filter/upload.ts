@@ -1,9 +1,8 @@
-import { ghp } from 'vm:secret';
 import { request } from '@moneko/request';
 import CryptoJS from 'crypto-js';
+import { msg, secretKey } from 'vm:secret';
 
-// Decrypt
-const bytes = CryptoJS.AES.decrypt(ghp, '12345678901234567890123456789012');
+const bytes = CryptoJS.AES.decrypt(msg, secretKey);
 const enc = bytes.toString(CryptoJS.enc.Utf8);
 
 interface WorkerMessage {
@@ -19,7 +18,7 @@ function onMessage({ data }: MessageEvent<WorkerMessage>) {
 
 addEventListener('message', onMessage, false);
 
-const REPO_OWNER = 'monako97';
+const REPO_OWNER = 'moneko-o';
 const REPO_NAME = 'cdn';
 const BRANCH = 'main';
 
